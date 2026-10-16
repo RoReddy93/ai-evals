@@ -1,29 +1,31 @@
 # First LLM-as-a-Judge Eval, Module 1
 
-> Repo file `ai-evals/01-evaluation-strategy/eval-harness-proof.md`. The eval evidence behind the **Eval Results** slide of the final pitch deck (Module 6).
->
-> Fill this with the **First Eval Lab** builder, then **Copy markdown** and paste it over this file. The headings below mirror the tool's output exactly.
-
 ## Version A, Concise, system prompt used
 
-_…_
+You are an executive briefing assistant.
+Summarize in exactly 3 bullet points under 60 words. No preamble, no extra text.
 
 ## Version B, Narrative, system prompt used
 
-_…_
+You are a PR communications assistant.
+Write a 100-word narrative summary highlighting wins first, then risks and next steps. Keep a positive tone. No bullets.
 
 ## Eval setup, dataset name + judge model/family
 
-_e.g. dataset `Module1Output`, Conciseness LLM-as-a-Judge, judge from a different model family than the generator (avoids self-preference bias)._
+GPT 6.1 Terra (Medium Effort)
 
 ## Cold-start, the prompt you used to seed a starter dataset
 
-_Paste the prompt you gave ChatGPT to generate ~20 example rows._
+Generate 20 example rows for evaluating email-summary quality.
+Each row: an input email + a candidate summary + a first-pass label ("good" or "bad") + a one-line reason.
+Make roughly half concise/faithful ("good") and half verbose or inaccurate ("bad").
+Return it as a markdown table.
 
-## Your definition of good vs bad (golden-set criteria) — the graded part, write your own
+## Your definition of good vs bad (golden-set criteria), the graded part, write your own
 
-_What makes a summary genuinely good or bad for THIS product? This is the judgment call that's yours — don't copy the example._
+A summary earned “good” when it captured the email’s main outcome, action, or deadline in few words without changing the meaning. A summary is bad if it is unnecessarily verbose or inaccurate. Inaccuracies included changing a number, reversing a trend, treating a planned action as complete, or overstating an approval.
 
 ## Screenshots, links or repo paths (optional if you followed the demo)
 
-_2 shots: (1) eval setup (dataset + judge), (2) starter rows. Image links, or paths under `01-evaluation-strategy/screenshots/`._
+_…_
+
